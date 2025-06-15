@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoHive - Saving Today for a Greener Tomorrow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .slide {
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            scroll-snap-align: start;
+        }
+
+        .slide-hero {
+            background: linear-gradient(135deg, #2E8B57 0%, #90EE90 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .slide-stats {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+
+        .slide-how-it-works {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .slide-problem {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #333;
+        }
+
+        .slide-markets {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+        }
+
+        .slide-competitors {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #333;
+        }
+
+        .slide-target {
+            background: linear-gradient(135deg, #96fbc4 0%, #f9f047 100%);
+            color: #333;
+        }
+
+        .slide-business {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2E8B57;
+        }
+
+        .slide-hero h3 {
+            color: #90EE90;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #90EE90;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .step-card {
+            background: rgba(255,255,255,0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: scale(1.05);
+        }
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
+            width: 100%;
+            max-width: 1200px;
+            align-items: center;
+        }
+
+        .problem-card, .solution-card {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .arrow {
+            font-size: 3rem;
+            color: #2E8B57;
+            text-align: center;
+        }
+
+        .markets-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .market-section {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .market-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .market-list li {
+            background: rgba(46,139,87,0.1);
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #2E8B57;
+        }
+
+        .competitors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .competitor-card {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .competitor-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2E8B57;
+            margin-bottom: 1rem;
+        }
+
+        .target-users {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .user-card {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .user-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .user-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .business-model {
+            background: rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2E8B57;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .navigation {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #2E8B57;
+            transform: scale(1.5);
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .problem-solution {
+                grid-template-columns: 1fr;
+            }
+            
+            .markets-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: rgba(255,255,255,0.7);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="navigation">
+        <div class="nav-dot active" onclick="scrollToSlide(0)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(1)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(2)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(3)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(4)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(5)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(6)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(7)"></div>
+    </div>
+
+    <!-- Hero Slide -->
+    <section class="slide slide-hero">
+        <div class="logo">EcoHive</div>
+        <div class="tagline">Meet us</div>
+        <h1>Saving Today for a Greener Tomorrow</h1>
+        <h3>The New Future of Food Ordering</h3>
+        <p style="font-size: 1.3rem; max-width: 800px; margin-top: 2rem;">Transform Waste into Worth: Reducing Food & Cosmetic Waste, One Eco-Friendly Delivery at a Time</p>
+        <div class="scroll-indicator">
+            <div style="font-size: 2rem;">↓</div>
+            <div>Scroll to explore</div>
+        </div>
+    </section>
+
+    <!-- Stats Slide -->
+    <section class="slide slide-stats">
+        <h2>Food Waste in Romania</h2>
+        <div class="stats-container">
+            <div class="stat-card">
+                <span class="stat-number">1.3M</span>
+                <p>tons of food annually wasted in Romania</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">120B</span>
+                <p>units of cosmetic packaging are thrown out globally every year</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">8-10%</span>
+                <p>global greenhouse gas emissions is emitted by food waste</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Slide -->
+    <section class="slide slide-how-it-works">
+        <h2>How EcoHive Works</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Save Near-Expiration Products</h3>
+                <p>Food and cosmetics near expiration are listed at discounted rates.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Easy Green Delivery</h3>
+                <p>Comfortably await for your food to arrive at your door, as easy as ordering food</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Build a Sustainable Lifestyle</h3>
+                <p>Every purchase helps reduce waste and pollution in your community.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Solution Slide -->
+    <section class="slide slide-problem">
+        <h2>Problem & Need</h2>
+        <div class="problem-solution">
+            <div class="problem-card">
+                <h3 style="color: #e74c3c;">Problem</h3>
+                <p>Food left over after restaurants close is wasted</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="solution-card">
+                <h3 style="color: #27ae60;">Solution</h3>
+                <p><strong>Need:</strong> People need cheap options for good food</p>
+                <p>An app that allows customers to order cheaper food from restaurants before it goes bad.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Markets Slide -->
+    <section class="slide slide-markets">
+        <h2>Addressed Markets</h2>
+        <div class="markets-grid">
+            <div class="market-section">
+                <h3>Primary Market Segments</h3>
+                <ul class="market-list">
+                    <li><strong>Budget-Conscious Individuals</strong><br>Students, low-income families, young professionals</li>
+                    <li><strong>Discount Hunters</strong><br>Shoppers who actively seek deals</li>
+                    <li><strong>Eco-Conscious Individuals</strong><br>People motivated by environmental sustainability</li>
+                    <li><strong>Zero-Waste Enthusiasts</strong><br>Those who prioritize waste reduction</li>
+                </ul>
+            </div>
+            <div class="market-section">
+                <h3>Secondary Market Segments</h3>
+                <ul class="market-list">
+                    <li><strong>Restaurants and Cafes</strong><br>Businesses with surplus food</li>
+                    <li><strong>Grocery Stores</strong><br>Retailers clearing inventory</li>
+                    <li><strong>Food Banks & Charities</strong><br>Organizations seeking affordable options</li>
+                    <li><strong>Gig Workers</strong><br>Drivers seeking delivery opportunities</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitors Slide -->
+    <section class="slide slide-competitors">
+        <h2>Competitors & Industry Landscape</h2>
+        <div class="competitors-grid">
+            <div class="competitor-card">
+                <div class="competitor-name">Too Good To Go</div>
+                <p>Connects customers to restaurants and stores with surplus unsold food. Covers major European cities and North America.</p>
+            </div>
+            <div class="competitor-card">
+                <div class="competitor-name">Olio</div>
+                <p>Mobile app for sharing by giving away, getting, borrowing or lending things in your community for free, reducing household and food waste.</p>
+            </div>
+            <div class="competitor-card">
+                <div class="competitor-name">Karma</div>
+                <p>Order food from restaurants for half the price while doing good for the environment. Currently available in Sweden, UK and France.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Users Slide -->
+    <section class="slide slide-target">
+        <h2>Target Users</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; text-align: center;">Our app is for people who:</p>
+        <div class="target-users">
+            <div class="user-card">
+                <div class="user-icon">🎓</div>
+                <h3>Students</h3>
+                <p>Have a tight budget and want healthy food options</p>
+            </div>
+            <div class="user-card">
+                <div class="user-icon">💼</div>
+                <h3>Young Workers</h3>
+                <p>Don't have a lot of time on their hands</p>
+            </div>
+            <div class="user-card">
+                <div class="user-icon">👨‍👩‍👧‍👦</div>
+                <h3>Low-Income Families</h3>
+                <p>Want to eat healthier while saving money</p>
+            </div>
+            <div class="user-card">
+                <div class="user-icon">🌱</div>
+                <h3>Eco-Conscious People</h3>
+                <p>Want to reduce food waste and help the environment</p>
+            </div>
+        </div>
+        <div style="margin-top: 3rem;">
+            <h3>What else can we offer our users?</h3>
+            <p>• Subscription Model for Surprise Meals<br>
+            • "Rescue Rewards" Loyalty Program<br>
+            • Corporate Partnerships for Office Lunches<br>
+            • Gamification of Sustainability</p>
+        </div>
+    </section>
+
+    <!-- Business Model Slide -->
+    <section class="slide slide-business">
+        <h2>The Business Model</h2>
+        <div class="business-model">
+            <h3 style="color: #FFD700; font-size: 2.5rem;">Commission Based</h3>
+            <p style="font-size: 1.3rem; margin-top: 2rem;">The platform earns a little bit from every transaction between restaurants, clients and riders.</p>
+            <p style="font-size: 1.5rem; margin-top: 2rem; color: #90EE90; font-weight: bold;">So it's a win-win!</p>
+        </div>
+    </section>
+
+    <script>
+        function scrollToSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            slides[index].scrollIntoView({ behavior: 'smooth' });
+            updateNavigation(index);
+        }
+
+        function updateNavigation(activeIndex) {
+            const dots = document.querySelectorAll('.nav-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeIndex);
+            });
+        }
+
+        // Update navigation on scroll
+        window.addEventListener('scroll', () => {
+            const slides = document.querySelectorAll('.slide');
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+            
+            slides.forEach((slide, index) => {
+                const slideTop = slide.offsetTop;
+                const slideBottom = slideTop + slide.offsetHeight;
+                
+                if (scrollPosition >= slideTop && scrollPosition < slideBottom) {
+                    updateNavigation(index);
+                }
+            });
+        });
+
+        // Smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.style.scrollBehavior = 'smooth';
+        });
+    </script>
+</body>
+</html>

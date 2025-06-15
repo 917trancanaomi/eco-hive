@@ -3,541 +3,548 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello this is my site</title>
+    <title>EcoHive - Saving Today for a Greener Tomorrow</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        :root {
-            --primary-green: #06c892;
-            --coral: #fd696e;
-            --dark-navy: #090147;
-            --bright-blue: #3583ff;
-            --teal: #004243;
-        }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--teal) 100%);
-            color: white;
-            overflow-x: hidden;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Animated Background Elements */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .floating-element {
-            position: absolute;
-            background: rgba(6, 200, 146, 0.1);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        .floating-element:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-            background: rgba(253, 105, 110, 0.1);
-        }
-        
-        .floating-element:nth-child(2) {
-            width: 60px;
-            height: 60px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-            background: rgba(53, 131, 255, 0.1);
-        }
-        
-        .floating-element:nth-child(3) {
-            width: 100px;
-            height: 100px;
-            bottom: 20%;
-            left: 15%;
-            animation-delay: 4s;
-            background: rgba(6, 200, 146, 0.1);
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-        
-        /* Header */
-        header {
-            padding: 2rem 0;
+
+        .slide {
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             position: relative;
+            scroll-snap-align: start;
         }
-        
-        .header-content {
+
+        .slide-hero {
+            background: linear-gradient(135deg, #2E8B57 0%, #90EE90 100%);
+            color: white;
             text-align: center;
-            animation: slideDown 1s ease-out;
         }
-        
+
+        .slide-stats {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+
+        .slide-how-it-works {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .slide-problem {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #333;
+        }
+
+        .slide-markets {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+        }
+
+        .slide-competitors {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #333;
+        }
+
+        .slide-target {
+            background: linear-gradient(135deg, #96fbc4 0%, #f9f047 100%);
+            color: #333;
+        }
+
+        .slide-business {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
         h1 {
             font-size: 3.5rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--primary-green), var(--bright-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             margin-bottom: 1rem;
-            text-shadow: 0 0 30px rgba(6, 200, 146, 0.3);
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        
-        .subtitle {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.8);
+
+        h2 {
+            font-size: 2.5rem;
             margin-bottom: 2rem;
+            text-align: center;
         }
-        
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2E8B57;
         }
-        
-        .nav-button {
-            padding: 12px 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid transparent;
-            border-radius: 50px;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
+
+        .slide-hero h3 {
+            color: #90EE90;
         }
-        
-        .nav-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .nav-button:hover::before {
-            left: 100%;
-        }
-        
-        .nav-button:hover {
-            border-color: var(--primary-green);
-            box-shadow: 0 0 20px rgba(6, 200, 146, 0.4);
-            transform: translateY(-2px);
-        }
-        
-        /* Main Content */
-        main {
-            padding: 3rem 0;
-        }
-        
-        .passion-grid {
+
+        .stats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin: 3rem 0;
+            width: 100%;
+            max-width: 1200px;
         }
-        
-        .passion-card {
-            background: rgba(255, 255, 255, 0.05);
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
             padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .passion-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-green), var(--bright-blue), var(--coral));
-            transform: scaleX(0);
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
             transition: transform 0.3s ease;
         }
-        
-        .passion-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .passion-card:hover {
+
+        .stat-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            background: rgba(255, 255, 255, 0.1);
         }
-        
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1rem;
-            font-size: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #90EE90;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .step-card {
+            background: rgba(255,255,255,0.2);
+            padding: 2rem;
             border-radius: 15px;
-        }
-        
-        .cybersec-icon {
-            background: linear-gradient(135deg, var(--primary-green), var(--teal));
-        }
-        
-        .angular-icon {
-            background: linear-gradient(135deg, var(--coral), var(--bright-blue));
-        }
-        
-        .reading-icon {
-            background: linear-gradient(135deg, var(--bright-blue), var(--dark-navy));
-        }
-        
-        .art-icon {
-            background: linear-gradient(135deg, var(--coral), var(--primary-green));
-        }
-        
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--primary-green);
-        }
-        
-        .card-description {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-        }
-        
-        /* Skills Section */
-        .skills-section {
-            margin: 4rem 0;
             text-align: center;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            background: linear-gradient(45deg, var(--coral), var(--bright-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .skills-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .skill-tag {
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            transition: transform 0.3s ease;
         }
-        
-        .skill-tag:hover {
-            background: var(--primary-green);
+
+        .step-card:hover {
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(6, 200, 146, 0.3);
         }
-        
-        /* Contact Section */
-        .contact-section {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 3rem 0;
-            margin: 3rem 0;
-            border-radius: 30px;
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
+            width: 100%;
+            max-width: 1200px;
+            align-items: center;
+        }
+
+        .problem-card, .solution-card {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
-            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        
-        .contact-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(45deg, var(--primary-green), var(--bright-blue));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
+
+        .arrow {
+            font-size: 3rem;
+            color: #2E8B57;
+            text-align: center;
+        }
+
+        .markets-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .market-section {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .market-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .market-list li {
+            background: rgba(46,139,87,0.1);
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #2E8B57;
+        }
+
+        .competitors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .competitor-card {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .competitor-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2E8B57;
+            margin-bottom: 1rem;
+        }
+
+        .target-users {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .user-card {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .user-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .user-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .business-model {
+            background: rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2E8B57;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .navigation {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            margin: 10px 0;
+            cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(6, 200, 146, 0.3);
         }
-        
-        .contact-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(6, 200, 146, 0.4);
+
+        .nav-dot.active {
+            background: #2E8B57;
+            transform: scale(1.5);
         }
-        
-        /* Animations */
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .passion-card {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-        
-        .passion-card:nth-child(1) { animation-delay: 0.1s; }
-        .passion-card:nth-child(2) { animation-delay: 0.2s; }
-        .passion-card:nth-child(3) { animation-delay: 0.3s; }
-        .passion-card:nth-child(4) { animation-delay: 0.4s; }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive Design */
+
         @media (max-width: 768px) {
+            .slide {
+                padding: 1rem;
+            }
+            
             h1 {
                 font-size: 2.5rem;
             }
             
-            .subtitle {
-                font-size: 1.2rem;
+            h2 {
+                font-size: 2rem;
             }
             
-            nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-            
-            .passion-grid {
+            .problem-solution {
                 grid-template-columns: 1fr;
             }
             
-            .skills-container {
-                justify-content: center;
+            .markets-grid {
+                grid-template-columns: 1fr;
             }
         }
-        
-        /* Glowing cursor effect */
-        body {
-            cursor: none;
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: rgba(255,255,255,0.7);
         }
-        
-        .cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: rgba(6, 200, 146, 0.5);
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease;
-            box-shadow: 0 0 20px rgba(6, 200, 146, 0.8);
-        }
-        
-        .cursor-follower {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid rgba(6, 200, 146, 0.3);
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.3s ease;
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-    
-    <div class="bg-animation">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
+    <!-- Navigation -->
+    <div class="navigation">
+        <div class="nav-dot active" onclick="scrollToSlide(0)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(1)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(2)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(3)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(4)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(5)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(6)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(7)"></div>
     </div>
-    
-    <div class="container">
-        <header>
-            <div class="header-content">
-                <h1>Hello this is my site (HI I TOOK OVER THIS SITE :D )</h1>
-                <p class="subtitle">Passionate about cybersecurity, code, knowledge & creativity</p>
+
+    <!-- Hero Slide -->
+    <section class="slide slide-hero">
+        <div class="logo">EcoHive</div>
+        <div class="tagline">Meet us</div>
+        <h1>Saving Today for a Greener Tomorrow</h1>
+        <h3>The New Future of Food Ordering</h3>
+        <p style="font-size: 1.3rem; max-width: 800px; margin-top: 2rem;">Transform Waste into Worth: Reducing Food & Cosmetic Waste, One Eco-Friendly Delivery at a Time</p>
+        <div class="scroll-indicator">
+            <div style="font-size: 2rem;">↓</div>
+            <div>Scroll to explore</div>
+        </div>
+    </section>
+
+    <!-- Stats Slide -->
+    <section class="slide slide-stats">
+        <h2>Food Waste in Romania</h2>
+        <div class="stats-container">
+            <div class="stat-card">
+                <span class="stat-number">1.3M</span>
+                <p>tons of food annually wasted in Romania</p>
             </div>
-            
-            <nav>
-                <a href="#about" class="nav-button">About</a>
-                <a href="#passions" class="nav-button">Passions</a>
-                <a href="#skills" class="nav-button">Skills</a>
-                <a href="#contact" class="nav-button">Contact</a>
-            </nav>
-        </header>
-        
-        <main>
-            <section id="passions" class="passions-section">
-                <div class="passion-grid">
-                    <div class="passion-card">
-                        <div class="card-icon cybersec-icon">🛡️</div>
-                        <h3 class="card-title">Cybersecurity</h3>
-                        <p class="card-description">
-                            Protecting digital assets and understanding threat landscapes. From penetration testing to security architecture, I'm passionate about building secure systems and staying ahead of evolving cyber threats.
-                        </p>
-                    </div>
-                    
-                    <div class="passion-card">
-                        <div class="card-icon angular-icon">⚡</div>
-                        <h3 class="card-title">Angular Development</h3>
-                        <p class="card-description">
-                            Creating dynamic, responsive web applications with Angular. I love crafting clean, maintainable code and building user experiences that are both powerful and intuitive.
-                        </p>
-                    </div>
-                    
-                    <div class="passion-card">
-                        <div class="card-icon reading-icon">📚</div>
-                        <h3 class="card-title">Reading & Learning</h3>
-                        <p class="card-description">
-                            Constantly expanding knowledge through books, research papers, and technical documentation. Learning is a lifelong journey that keeps me curious and innovative.
-                        </p>
-                    </div>
-                    
-                    <div class="passion-card">
-                        <div class="card-icon art-icon">🎨</div>
-                        <h3 class="card-title">Art & Creativity</h3>
-                        <p class="card-description">
-                            Expressing creativity through various art forms. Art provides balance to technical work and inspires innovative solutions to complex problems.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="skills" class="skills-section">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="skills-container">
-                    <span class="skill-tag">Angular</span>
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">Cybersecurity</span>
-                    <span class="skill-tag">Penetration Testing</span>
-                    <span class="skill-tag">Web Development</span>
-                    <span class="skill-tag">Security Architecture</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">HTML/CSS</span>
-                    <span class="skill-tag">Risk Assessment</span>
-                    <span class="skill-tag">Creative Problem Solving</span>
-                </div>
-            </section>
-            
-            <section id="contact" class="contact-section">
-                <h2 class="section-title">Let's Connect</h2>
-                <p style="margin-bottom: 2rem; color: rgba(255, 255, 255, 0.8);">
-                    Ready to collaborate on exciting projects or discuss cybersecurity, coding, or creative ideas?
-                </p>
-                <a href="#" class="contact-button">Get In Touch</a>
-            </section>
-        </main>
-    </div>
-    
+            <div class="stat-card">
+                <span class="stat-number">120B</span>
+                <p>units of cosmetic packaging are thrown out globally every year</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">8-10%</span>
+                <p>global greenhouse gas emissions is emitted by food waste</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Slide -->
+    <section class="slide slide-how-it-works">
+        <h2>How EcoHive Works</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Save Near-Expiration Products</h3>
+                <p>Food and cosmetics near expiration are listed at discounted rates.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Easy Green Delivery</h3>
+                <p>Comfortably await for your food to arrive at your door, as easy as ordering food</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Build a Sustainable Lifestyle</h3>
+                <p>Every purchase helps reduce waste and pollution in your community.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Solution Slide -->
+    <section class="slide slide-problem">
+        <h2>Problem & Need</h2>
+        <div class="problem-solution">
+            <div class="problem-card">
+                <h3 style="color: #e74c3c;">Problem</h3>
+                <p>Food left over after restaurants close is wasted</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="solution-card">
+                <h3 style="color: #27ae60;">Solution</h3>
+                <p><strong>Need:</strong> People need cheap options for good food</p>
+                <p>An app that allows customers to order cheaper food from restaurants before it goes bad.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Markets Slide -->
+    <section class="slide slide-markets">
+        <h2>Addressed Markets</h2>
+        <div class="markets-grid">
+            <div class="market-section">
+                <h3>Primary Market Segments</h3>
+                <ul class="market-list">
+                    <li><strong>Budget-Conscious Individuals</strong><br>Students, low-income families, young professionals</li>
+                    <li><strong>Discount Hunters</strong><br>Shoppers who actively seek deals</li>
+                    <li><strong>Eco-Conscious Individuals</strong><br>People motivated by environmental sustainability</li>
+                    <li><strong>Zero-Waste Enthusiasts</strong><br>Those who prioritize waste reduction</li>
+                </ul>
+            </div>
+            <div class="market-section">
+                <h3>Secondary Market Segments</h3>
+                <ul class="market-list">
+                    <li><strong>Restaurants and Cafes</strong><br>Businesses with surplus food</li>
+                    <li><strong>Grocery Stores</strong><br>Retailers clearing inventory</li>
+                    <li><strong>Food Banks & Charities</strong><br>Organizations seeking affordable options</li>
+                    <li><strong>Gig Workers</strong><br>Drivers seeking delivery opportunities</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitors Slide -->
+    <section class="slide slide-competitors">
+        <h2>Competitors & Industry Landscape</h2>
+        <div class="competitors-grid">
+            <div class="competitor-card">
+                <div class="competitor-name">Too Good To Go</div>
+                <p>Connects customers to restaurants and stores with surplus unsold food. Covers major European cities and North America.</p>
+            </div>
+            <div class="competitor-card">
+                <div class="competitor-name">Olio</div>
+                <p>Mobile app for sharing by giving away, getting, borrowing or lending things in your community for free, reducing household and food waste.</p>
+            </div>
+            <div class="competitor-card">
+                <div class="competitor-name">Karma</div>
+                <p>Order food from restaurants for half the price while doing good for the environment. Currently available in Sweden, UK and France.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Users Slide -->
+    <section class="slide slide-target">
+        <h2>Target Users</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; text-align: center;">Our app is for people who:</p>
+        <div class="target-users">
+            <div class="user-card">
+                <div class="user-icon">🎓</div>
+                <h3>Students</h3>
+                <p>Have a tight budget and want healthy food options</p>
+            </div>
+            <div class="user-card">
+                <div class="user-icon">💼</div>
+                <h3>Young Workers</h3>
+                <p>Don't have a lot of time on their hands</p>
+            </div>
+            <div class="user-card">
+                <div class="user-icon">👨‍👩‍👧‍👦</div>
+                <h3>Low-Income Families</h3>
+                <p>Want to eat healthier while saving money</p>
+            </div>
+            <div class="user-card">
+                <div class="user-icon">🌱</div>
+                <h3>Eco-Conscious People</h3>
+                <p>Want to reduce food waste and help the environment</p>
+            </div>
+        </div>
+        <div style="margin-top: 3rem;">
+            <h3>What else can we offer our users?</h3>
+            <p>• Subscription Model for Surprise Meals<br>
+            • "Rescue Rewards" Loyalty Program<br>
+            • Corporate Partnerships for Office Lunches<br>
+            • Gamification of Sustainability</p>
+        </div>
+    </section>
+
+    <!-- Business Model Slide -->
+    <section class="slide slide-business">
+        <h2>The Business Model</h2>
+        <div class="business-model">
+            <h3 style="color: #FFD700; font-size: 2.5rem;">Commission Based</h3>
+            <p style="font-size: 1.3rem; margin-top: 2rem;">The platform earns a little bit from every transaction between restaurants, clients and riders.</p>
+            <p style="font-size: 1.5rem; margin-top: 2rem; color: #90EE90; font-weight: bold;">So it's a win-win!</p>
+        </div>
+    </section>
+
     <script>
-        // Custom cursor
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-        
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+        function scrollToSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            slides[index].scrollIntoView({ behavior: 'smooth' });
+            updateNavigation(index);
+        }
+
+        function updateNavigation(activeIndex) {
+            const dots = document.querySelectorAll('.nav-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeIndex);
+            });
+        }
+
+        // Update navigation on scroll
+        window.addEventListener('scroll', () => {
+            const slides = document.querySelectorAll('.slide');
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
             
-            setTimeout(() => {
-                cursorFollower.style.left = e.clientX - 18 + 'px';
-                cursorFollower.style.top = e.clientY - 18 + 'px';
-            }, 100);
-        });
-        
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+            slides.forEach((slide, index) => {
+                const slideTop = slide.offsetTop;
+                const slideBottom = slideTop + slide.offsetHeight;
+                
+                if (scrollPosition >= slideTop && scrollPosition < slideBottom) {
+                    updateNavigation(index);
                 }
             });
         });
-        
-        // Parallax effect for floating elements
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelectorAll('.floating-element');
-            const speed = 0.5;
-            
-            parallax.forEach((element, index) => {
-                const yPos = -(scrolled * speed * (index + 1) * 0.1);
-                element.style.transform = `translateY(${yPos}px)`;
-            });
-        });
-        
-        // Interactive skill tags
-        document.querySelectorAll('.skill-tag').forEach(tag => {
-            tag.addEventListener('mouseenter', function() {
-                this.style.background = `linear-gradient(45deg, #06c892, #3583ff)`;
-            });
-            
-            tag.addEventListener('mouseleave', function() {
-                this.style.background = 'rgba(255, 255, 255, 0.1)';
-            });
-        });
-        
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease';
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
+
+        // Smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.style.scrollBehavior = 'smooth';
         });
     </script>
 </body>

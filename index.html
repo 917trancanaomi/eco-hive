@@ -30,44 +30,49 @@
         }
 
         .slide-hero {
-            background: linear-gradient(135deg, #2E8B57 0%, #90EE90 100%);
-            color: white;
+            background: #8cb86c;
+            color: #222;
             text-align: center;
         }
 
         .slide-stats {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
+            background: #a87abd;
+            color: #222;
         }
 
         .slide-how-it-works {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
+            background: #dcc132;
+            color: #333;
         }
 
         .slide-problem {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            background: #e1a3ca;
             color: #333;
         }
 
         .slide-markets {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            background: #f8f0de;
             color: #333;
         }
 
         .slide-competitors {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-            color: #333;
+            background: #8cb86c;
+            color: #222;
         }
 
         .slide-target {
-            background: linear-gradient(135deg, #96fbc4 0%, #f9f047 100%);
+            background: #a87abd;
+            color: #222;
+        }
+
+        .slide-demo {
+            background: #dcc132;
             color: #333;
         }
 
         .slide-business {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #e1a3ca;
+            color: #333;
         }
 
         h1 {
@@ -86,11 +91,23 @@
         h3 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: #2E8B57;
+            color: #8cb86c;
         }
 
         .slide-hero h3 {
-            color: #90EE90;
+            color: #333;
+        }
+
+        .slide-stats h3 {
+            color: #333;
+        }
+
+        .slide-competitors h3 {
+            color: #333;
+        }
+
+        .slide-target h3 {
+            color: #333;
         }
 
         .stats-container {
@@ -118,7 +135,7 @@
         .stat-number {
             font-size: 3rem;
             font-weight: bold;
-            color: #90EE90;
+            color: #8b7355;
             display: block;
             margin-bottom: 0.5rem;
         }
@@ -147,7 +164,7 @@
         .step-number {
             font-size: 2rem;
             font-weight: bold;
-            color: #FFD700;
+            color: #8cb86c;
             margin-bottom: 1rem;
         }
 
@@ -170,7 +187,7 @@
 
         .arrow {
             font-size: 3rem;
-            color: #2E8B57;
+            color: #8cb86c;
             text-align: center;
         }
 
@@ -195,11 +212,11 @@
         }
 
         .market-list li {
-            background: rgba(46,139,87,0.1);
+            background: rgba(140,184,108,0.2);
             margin: 0.5rem 0;
             padding: 1rem;
             border-radius: 8px;
-            border-left: 4px solid #2E8B57;
+            border-left: 4px solid #8cb86c;
         }
 
         .competitors-grid {
@@ -221,7 +238,7 @@
         .competitor-name {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #2E8B57;
+            color: #5a7a3c;
             margin-bottom: 1rem;
         }
 
@@ -251,19 +268,55 @@
             margin-bottom: 1rem;
         }
 
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .demo-screen {
+            background: rgba(255,255,255,0.9);
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .demo-image {
+            width: 100%;
+            height: 400px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: #666;
+            font-size: 1.1rem;
+            border: 2px dashed #8cb86c;
+        }
+
+        .demo-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #5a7a3c;
+            margin-bottom: 0.5rem;
+        }
+
         .business-model {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.9);
             padding: 3rem;
             border-radius: 20px;
             text-align: center;
-            backdrop-filter: blur(10px);
             max-width: 600px;
         }
 
         .logo {
             font-size: 2rem;
             font-weight: bold;
-            color: #2E8B57;
+            color: #8b7355;
             margin-bottom: 0.5rem;
         }
 
@@ -292,7 +345,7 @@
         }
 
         .nav-dot.active {
-            background: #2E8B57;
+            background: #8cb86c;
             transform: scale(1.5);
         }
 
@@ -351,6 +404,7 @@
         <div class="nav-dot" onclick="scrollToSlide(5)"></div>
         <div class="nav-dot" onclick="scrollToSlide(6)"></div>
         <div class="nav-dot" onclick="scrollToSlide(7)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(8)"></div>
     </div>
 
     <!-- Hero Slide -->
@@ -500,6 +554,42 @@
             • "Rescue Rewards" Loyalty Program<br>
             • Corporate Partnerships for Office Lunches<br>
             • Gamification of Sustainability</p>
+        </div>
+    </section>
+
+    <!-- Demo Slide -->
+    <section class="slide slide-demo">
+        <h2>App Demo</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; text-align: center;">Experience EcoHive in action</p>
+        <div class="demo-grid">
+            <div class="demo-screen">
+                <div class="demo-image">
+                    [Home Screen Image Placeholder]
+                </div>
+                <div class="demo-title">Home Screen</div>
+                <p>Browse available discounted items near you</p>
+            </div>
+            <div class="demo-screen">
+                <div class="demo-image">
+                    [Restaurant Listing Placeholder]
+                </div>
+                <div class="demo-title">Restaurant Listings</div>
+                <p>Discover local restaurants with surplus food</p>
+            </div>
+            <div class="demo-screen">
+                <div class="demo-image">
+                    [Order Process Placeholder]
+                </div>
+                <div class="demo-title">Order Process</div>
+                <p>Simple and quick ordering experience</p>
+            </div>
+            <div class="demo-screen">
+                <div class="demo-image">
+                    [Impact Tracking Placeholder]
+                </div>
+                <div class="demo-title">Impact Tracking</div>
+                <p>See your environmental impact and savings</p>
+            </div>
         </div>
     </section>
 

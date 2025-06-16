@@ -19,6 +19,7 @@
             color: #333;
             overflow-x: hidden;
             cursor: none;
+            background: #f8f0de;
         }
 
         /* Custom cursor */
@@ -51,7 +52,7 @@
         }
 
         .slide {
-            min-height: 100vh;
+            /* min-height: 100vh; */
             padding: 2rem;
             display: flex;
             flex-direction: column;
@@ -62,6 +63,7 @@
         }
 
         .slide-hero {
+            min-height: 100vh;
             background: #8cb86c;
             color: #1a1a1a;
             text-align: center;
@@ -71,7 +73,7 @@
 
         .slide-stats {
             background: #a87abd;
-            color: #ffffff;
+            color: #1a1a1a;
         }
 
         .slide-how-it-works {
@@ -96,7 +98,7 @@
 
         .slide-target {
             background: #a87abd;
-            color: #ffffff;
+            color: #1a1a1a;
         }
 
         .slide-demo {
@@ -134,7 +136,7 @@
         }
 
         .slide-stats h3 {
-            color: #ffffff;
+            color: #1a1a1a;
         }
 
         .slide-competitors h3 {
@@ -142,7 +144,7 @@
         }
 
         .slide-target h3 {
-            color: #ffffff;
+            color: #1a1a1a;
         }
 
         .stats-container {
@@ -505,6 +507,12 @@
             }
         }
 
+        @media (max-width: 900px) {
+            .doodle {
+                display: none !important;
+            }
+        }
+
         .scroll-indicator {
             position: absolute;
             bottom: 2rem;
@@ -656,7 +664,9 @@
 
         /* Bounce in animation for cards */
         .bounce-in {
-            animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            opacity: 0;
+            transform: scale(0.3);
         }
 
         @keyframes bounceIn {
@@ -684,6 +694,222 @@
             from, to { border-color: transparent; }
             50% { border-color: #8cb86c; }
         }
+
+        .continuous-section {
+            padding: 0;
+            position: relative;
+        }
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem 2rem;
+        }
+        .section-separator {
+            width: 100%;
+            height: 32px;
+
+            margin: 100px 0 100px 0;
+            position: relative;
+            overflow: visible;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .animated-line {
+            width: 90%;
+            height: 8px;
+            border-radius: 8px;
+            background: linear-gradient(270deg, #8cb86c, #a87abd, #e1a3ca, #dcc132, #fd696e, #3583ff, #06c892, #8cb86c);
+            background-size: 1600% 8px;
+            animation: lineGradientMove 8s linear infinite;
+            box-shadow: 0 2px 12px rgba(140,184,108,0.08);
+        }
+        @keyframes lineGradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Animated Background Elements */
+       /* Animated Background Elements */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: #8cb86c33;
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            background: #e1a3ca33;
+        }
+        
+        .floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+            background: #8cb86c33;
+        }
+        
+        .floating-element:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 4s;
+            background: #a87abd33;
+        }
+
+        .floating-element:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            top: 40%;
+            right: 25%;
+            animation-delay: 1s;
+            background: #dcc13233;
+        }
+
+        .floating-element:nth-child(5) {
+            width: 90px;
+            height: 90px;
+            bottom: 40%;
+            right: 5%;
+            animation-delay: 3s;
+            background: #8cb86c60;
+        }
+
+        .floating-element:nth-child(6) {
+            width: 70px;
+            height: 70px;
+            top: 10%;
+            right: 40%;
+            animation-delay: 5s;
+            background: #e74c3c33;
+        }
+
+        /* Particle Animation */
+        .particle {
+            position: absolute;
+            background: #8cb86c60;
+            border-radius: 50%;
+            animation: particle-float 12s linear infinite;
+        }
+
+        .particle:nth-child(7) {
+            width: 4px;
+            height: 4px;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(8) {
+            width: 6px;
+            height: 6px;
+            left: 60%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(9) {
+            width: 3px;
+            height: 3px;
+            left: 80%;
+            animation-delay: 4s;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+
+         .floating-blob {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .blob-3 {
+            width: 80px;
+            height: 80px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .impact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .impact-card {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 6px solid #8cb86c;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 15px 35px rgba(140,184,108,0.2);
+        }
+
+        .impact-card-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #8cb86c;
+            margin-bottom: 1rem;
+        }
+
+        .bounce-in {
+            animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            opacity: 0;
+            transform: scale(0.3);
+        }
+        /* ...existing code for remaining sections... */
     </style>
 </head>
 <body>
@@ -691,20 +917,20 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
-    <!-- Navigation -->
-    <div class="navigation">
-        <div class="nav-dot active" onclick="scrollToSlide(0)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(1)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(2)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(3)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(4)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(5)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(6)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(7)"></div>
-        <div class="nav-dot" onclick="scrollToSlide(8)"></div>
+    <!-- Animated Background Elements -->
+    <div class="bg-animation">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
     </div>
 
-    <!-- Hero Slide -->
+    <!-- Hero Slide (kept as is) -->
     <section class="slide slide-hero">
         <!-- Floating doodles -->
         <div class="doodle doodle-1">🌱</div>
@@ -727,219 +953,261 @@
         </div>
     </section>
 
-    <!-- Stats Slide -->
-    <section class="slide slide-stats">
-        <!-- Floating doodles -->
-        <div class="doodle doodle-1">🌱</div>
-        <div class="doodle doodle-2">♻️</div>
-        <div class="doodle doodle-3">🍃</div>
-        <div class="doodle doodle-4">🌍</div>
-        <h2>Food Waste in Romania</h2>
-        <div class="stats-container">
-            <div class="stat-card pink">
-                <span class="stat-number">1.3M</span>
-                <p>tons of food annually wasted in Romania</p>
-            </div>
-            <div class="stat-card green">
-                <span class="stat-number">120B</span>
-                <p>units of packaging are thrown out globally every year</p>
-            </div>
-            <div class="stat-card yellow">
-                <span class="stat-number">8-10%</span>
-                <p>global greenhouse gas emissions is emitted by food waste</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Slide -->
-    <section class="slide slide-how-it-works">
-        <!-- Floating doodles -->
-        <div class="doodle doodle-1">🌱</div>
-        <div class="doodle doodle-2">♻️</div>
-        <div class="doodle doodle-3">🍃</div>
-        <div class="doodle doodle-4">🌍</div>
-        <h2>How EcoHive Works</h2>
-        <div class="steps-container">
-            <div class="step-card">
-                <div class="step-number">1</div>
-                <h3>Save Products near closing-time</h3>
-                <p>Food not sold near closing-time that is supposed to be thrown out is listed at discounted rates.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">2</div>
-                <h3>Easy Green Delivery</h3>
-                <p>Comfortably await for your food to arrive at your door, as easy as ordering food</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <h3>Build a Sustainable Lifestyle</h3>
-                <p>Every purchase helps reduce waste and pollution in your community.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem & Solution Slide -->
-    <section class="slide slide-problem">
-        <!-- Floating doodles -->
-        <div class="doodle doodle-1">🌱</div>
-        <div class="doodle doodle-2">♻️</div>
-        <div class="doodle doodle-3">🍃</div>
-        <div class="doodle doodle-4">🌍</div>
-        <h2>Problem & Need</h2>
-        <div class="problem-solution">
-            <div class="problem-card" style="background-color: #e74c3c; color: white;">
-                <h3 style="color: white;">Problem</h3>
-                <p>Food left over after restaurants close is wasted</p>
-            </div>
-            <div class="arrow">→</div>
-            <div class="solution-card" style="background-color: #27ae60; color: white;">
-                <h3 style="color: white;">Solution</h3>
-                <p><strong>Need:</strong> People need cheap options for good food</p>
-                <p>An app that allows customers to order cheaper food from restaurants before it goes bad.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Markets Slide -->
-    <section class="slide slide-markets">
-        <!-- Floating doodles -->
-        <div class="doodle doodle-1">🌱</div>
-        <div class="doodle doodle-2">♻️</div>
-        <div class="doodle doodle-3">🍃</div>
-        <div class="doodle doodle-4">🌍</div>
-        <h2>Addressed Markets</h2>
-        <div class="markets-grid">
-            <div class="market-section">
-                <h3>Primary Market Segments</h3>
-                <ul class="market-list">
-                    <li><strong>Budget-Conscious Individuals</strong><br>Students, low-income families, young professionals</li>
-                    <li><strong>Discount Hunters</strong><br>Shoppers who actively seek deals</li>
-                    <li><strong>Eco-Conscious Individuals</strong><br>People motivated by environmental sustainability</li>
-                    <li><strong>Zero-Waste Enthusiasts</strong><br>Those who prioritize waste reduction</li>
-                </ul>
-            </div>
-            <div class="market-section">
-                <h3>Secondary Market Segments</h3>
-                <ul class="market-list">
-                    <li><strong>Restaurants and Cafes</strong><br>Businesses with surplus food</li>
-                    <li><strong>Grocery Stores</strong><br>Retailers clearing inventory</li>
-                    <li><strong>Food Banks & Charities</strong><br>Organizations seeking affordable options</li>
-                    <li><strong>Gig Workers</strong><br>Drivers seeking delivery opportunities</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Competitors Slide -->
-    <section class="slide slide-competitors">
-        <!-- Floating doodles -->
-        <div class="doodle doodle-1">🌱</div>
-        <div class="doodle doodle-2">♻️</div>
-        <div class="doodle doodle-3">🍃</div>
-        <div class="doodle doodle-4">🌍</div>
-        <h2>Competitors & Industry Landscape</h2>
-        <div class="competitors-grid">
-            <div class="competitor-card">
-                <div class="competitor-name">Too Good To Go</div>
-                <p>Connects customers to restaurants and stores with surplus unsold food. Covers major European cities and North America.</p>
-            </div>
-            <div class="competitor-card">
-                <div class="competitor-name">Olio</div>
-                <p>Mobile app for sharing by giving away, getting, borrowing or lending things in your community for free, reducing household and food waste.</p>
-            </div>
-            <div class="competitor-card">
-                <div class="competitor-name">Karma</div>
-                <p>Order food from restaurants for half the price while doing good for the environment. Currently available in Sweden, UK and France.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Target Users Slide -->
-    <section class="slide slide-target">
-        <!-- Floating doodles -->
-        <div class="doodle doodle-1">🌱</div>
-        <div class="doodle doodle-2">♻️</div>
-        <div class="doodle doodle-3">🍃</div>
-        <div class="doodle doodle-4">🌍</div>
-        <h2>Target Users</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem; text-align: center;">Our app is for people who:</p>
-        <div class="target-users" style="color: #1a1a1a;">
-            <div class="user-card">
-                <div class="user-icon">🎓</div>
-                <h3 style="color: #1a1a1a;">Students</h3>
-                <p>Have a tight budget and want healthy food options</p>
-            </div>
-            <div class="user-card">
-                <div class="user-icon">💼</div>
-                <h3 style="color: #1a1a1a;">Young Workers</h3>
-                <p>Don't have a lot of time on their hands</p>
-            </div>
-            <div class="user-card">
-                <div class="user-icon">👨‍👩‍👧‍👦</div>
-                <h3 style="color: #1a1a1a;">Low-Income Families</h3>
-                <p>Want to eat healthier while saving money</p>
-            </div>
-            <div class="user-card">
-                <div class="user-icon">🌱</div>
-                <h3 style="color: #1a1a1a;">Eco-Conscious People</h3>
-                <p>Want to reduce food waste and help the environment</p>
-            </div>
-        </div>
-        <div style="margin-top: 3rem;">
-            <h3>What else can we offer our users?</h3>
-            <p>• Subscription Model for Surprise Meals<br>
-            • "Rescue Rewards" Loyalty Program<br>
-            • Corporate Partnerships for Office Lunches<br>
-            • Gamification of Sustainability</p>
-        </div>
-    </section>
-
-    <!-- Demo Slide -->
-    <section class="slide slide-demo">
-        <!-- Floating doodles -->
-        <div class="doodle doodle-1">🌱</div>
-        <div class="doodle doodle-2">♻️</div>
-        <div class="doodle doodle-3">🍃</div>
-        <div class="doodle doodle-4">🌍</div>
-        <h2>App Demo</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem; text-align: center;">Experience EcoHive in action</p>
-        <div class="demo-grid">
-            <div class="demo-screen">
-                <div class="demo-image">
-                    <img src="./mainpage.jpeg">
+    <!-- Continuous Cream Section for all other content -->
+    <section class="continuous-section">
+        <div class="section-content">
+            <!-- Stats Slide -->
+            <section class="slide slide-stats" style="background:transparent; box-shadow:none;">
+                <h2>Food Waste in Romania</h2>
+                <div class="stats-container">
+                    <div class="stat-card pink">
+                        <span class="stat-number">1.3M</span>
+                        <p>tons of food annually wasted in Romania</p>
+                    </div>
+                    <div class="stat-card green">
+                        <span class="stat-number">120B</span>
+                        <p>units of packaging are thrown out globally every year</p>
+                    </div>
+                    <div class="stat-card yellow">
+                        <span class="stat-number">8-10%</span>
+                        <p>global greenhouse gas emissions is emitted by food waste</p>
+                    </div>
                 </div>
-                <div class="demo-title">Home Screen</div>
-                <p>Browse available discounted items near you</p>
-            </div>
-            <div class="demo-screen">
-                <div class="demo-image">
-                    <img src="./restaurantpage.jpeg">
-                </div>
-                <div class="demo-title">Restaurant Listings</div>
-                <p>Discover local restaurants with surplus food</p>
-            </div>
-            <div class="demo-screen">
-                <div class="demo-image">
-                    <img src="./orderpage.jpeg">
-                </div>
-                <div class="demo-title">Order Process</div>
-                <p>Simple and quick ordering experience</p>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Business Model Slide -->
-    <section class="slide slide-business">
-        <!-- Floating doodles -->
-        <div class="doodle doodle-1">🌱</div>
-        <div class="doodle doodle-2">♻️</div>
-        <div class="doodle doodle-3">🍃</div>
-        <div class="doodle doodle-4">🌍</div>
-        <h2>The Business Model</h2>
-        <div class="business-model">
-            <h3 style="color: #8cb86c; font-size: 2.5rem;">Commission Based</h3>
-            <p style="font-size: 1.3rem; margin-top: 2rem;">The platform earns a little bit from every transaction between restaurants, clients and riders.</p>
-            <p style="font-size: 1.5rem; margin-top: 2rem; color: #a87abd; font-weight: bold;">So it's a win-win!</p>
+            <!-- How It Works Slide -->
+            <div class="section-separator"><div class="animated-line"></div></div>
+            <section class="slide slide-how-it-works" style="background:transparent; box-shadow:none;">
+                <!-- Floating doodles -->
+                <h2>How EcoHive Works</h2>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Save Products near closing-time</h3>
+                        <p>Food not sold near closing-time that is supposed to be thrown out is listed at discounted rates.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Easy Green Delivery</h3>
+                        <p>Comfortably await for your food to arrive at your door, as easy as ordering food</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Build a Sustainable Lifestyle</h3>
+                        <p>Every purchase helps reduce waste and pollution in your community.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Problem & Solution Slide -->
+            <div class="section-separator"><div class="animated-line"></div></div>
+            <section class="slide slide-problem" style="background:transparent; box-shadow:none;">
+
+                <h2>Problem & Need</h2>
+                <div class="problem-solution">
+                    <div class="problem-card" style="background-color: #e74c3c; color: white;">
+                        <h3 style="color: white;">Problem</h3>
+                        <p>Food left over after restaurants close is wasted</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="solution-card" style="background-color: #27ae60; color: white;">
+                        <h3 style="color: white;">Solution</h3>
+                        <p><strong>Need:</strong> People need cheap options for good food</p>
+                        <p>An app that allows customers to order cheaper food from restaurants before it goes bad.</p>
+                    </div>
+                </div>
+            </section>
+
+                        <!-- Proven Impact Section -->
+            <div class="section-separator"><div class="animated-line"></div></div>
+            <section class="slide" style="background:transparent; box-shadow:none;">
+                <h2>Proven Impact: Real Success Stories</h2>
+                <div class="impact-cards">
+                    <div class="impact-card bounce-in">
+                        <div class="impact-card-title">Bonapp Romania: 450 Tons of Food Saved</div>
+                        <p><strong>Since launching in November 2021</strong>, Bonapp has saved over <strong>450 tons of food</strong> with 350,000+ users across Romania. The platform works with 1,200 vendors monthly and has demonstrated that 90% of users become more conscious of food waste, with 48% actively reducing household waste.</p>
+                    </div>
+                    <div class="impact-card bounce-in" style="animation-delay: 0.2s;">
+                        <div class="impact-card-title">Too Good To Go: Global Leader</div>
+                        <p>Operating in <strong>19 countries</strong> across North America, Europe, and Australia, Too Good To Go covers <strong>170,000 stores</strong> and has saved over <strong>35 million meals</strong> globally from landfills. This translates to approximately <strong>88,000 tons of CO₂ emissions saved</strong>, with over 25 million users actively participating in waste reduction.</p>
+                    </div>
+                    <div class="impact-card bounce-in" style="animation-delay: 0.4s;">
+                        <div class="impact-card-title">User Behavior Transformation</div>
+                        <p>Research shows that food waste apps create lasting behavioral changes. Users report becoming more mindful of food management (44%), adopting better storage practices (23%), and planning meals more effectively (20%). One-third of users who reduced household waste estimated a reduction of 10-30% in their personal food waste.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Trends Section -->
+            <div class="section-separator"><div class="animated-line"></div></div>
+            <section class="slide" style="background:transparent; box-shadow:none;">
+                <h2>Market Trends in Food Delivery</h2>
+                <div class="stats-container">
+                    <div class="stat-card yellow">
+                        <span class="stat-number">49%</span>
+                        <p>of delivery orders include discounts, with DoorDash leading at 65%, Uber Eats at 55%, and Grubhub at 27%, showing growing price sensitivity</p>
+                    </div>
+                    <div class="stat-card purple">
+                        <span class="stat-number">70%</span>
+                        <p>year-over-year increase in merchant-funded discounts on Uber Eats alone</p>
+                    </div>
+                    <div class="stat-card green">
+                        <span class="stat-number">33%</span>
+                        <p>average sales increase during happy hour with item-level discounts</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Consumer Benefits Section -->
+            <div class="section-separator"><div class="animated-line"></div></div>
+            <section class="slide" style="background:transparent; box-shadow:none;">
+                <h2>Our app is for people who</h2>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">💰</div>
+                        <h3>Have a tight budget</h3>
+                        <p>Want healthy food options without breaking the bank. Users typically save 30-50% on quality meals while supporting sustainability efforts.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">⏰</div>
+                        <h3>Don't have time</h3>
+                        <p>Need quick and convenient food solutions. Apps like Too Good To Go have proven that convenience and sustainability can coexist, with users appreciating the treasure hunt aspect of discovering discounted meals.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">🌍</div>
+                        <h3>Want to help the environment</h3>
+                        <p>Care about reducing food waste and environmental impact. Research shows these apps make the invisible food waste issue visible and empower users to take meaningful action.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Markets Slide -->
+            <div class="section-separator"><div class="animated-line"></div></div>
+            <section class="slide slide-markets" style="background:transparent; box-shadow:none;">
+                <!-- Floating doodles -->
+                <h2>Addressed Markets</h2>
+                <div class="markets-grid">
+                    <div class="market-section">
+                        <h3>Primary Market Segments</h3>
+                        <ul class="market-list">
+                            <li><strong>Budget-Conscious Individuals</strong><br>Students, low-income families, young professionals</li>
+                            <li><strong>Discount Hunters</strong><br>Shoppers who actively seek deals</li>
+                            <li><strong>Eco-Conscious Individuals</strong><br>People motivated by environmental sustainability</li>
+                            <li><strong>Zero-Waste Enthusiasts</strong><br>Those who prioritize waste reduction</li>
+                        </ul>
+                    </div>
+                    <div class="market-section">
+                        <h3>Secondary Market Segments</h3>
+                        <ul class="market-list">
+                            <li><strong>Restaurants and Cafes</strong><br>Businesses with surplus food</li>
+                            <li><strong>Grocery Stores</strong><br>Retailers clearing inventory</li>
+                            <li><strong>Food Banks & Charities</strong><br>Organizations seeking affordable options</li>
+                            <li><strong>Gig Workers</strong><br>Drivers seeking delivery opportunities</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Competitors Slide -->
+            <div class="section-separator"><div class="animated-line"></div></div>
+            <section class="slide slide-competitors" style="background:transparent; box-shadow:none;">
+                <!-- Floating doodles -->
+                <h2>Competitors & Industry Landscape</h2>
+                <div class="competitors-grid">
+                    <div class="competitor-card">
+                        <div class="competitor-name">Too Good To Go</div>
+                        <p>Connects customers to restaurants and stores with surplus unsold food. Covers major European cities and North America.</p>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">Olio</div>
+                        <p>Mobile app for sharing by giving away, getting, borrowing or lending things in your community for free, reducing household and food waste.</p>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">Karma</div>
+                        <p>Order food from restaurants for half the price while doing good for the environment. Currently available in Sweden, UK and France.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Target Users Slide -->
+            <div class="section-separator"><div class="animated-line"></div></div>
+            <section class="slide slide-target" style="background:transparent; box-shadow:none;">
+
+                <h2>Target Users</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; text-align: center;">Our app is for people who:</p>
+                <div class="target-users" style="color: #1a1a1a;">
+                    <div class="user-card">
+                        <div class="user-icon">🎓</div>
+                        <h3 style="color: #1a1a1a;">Students</h3>
+                        <p>Have a tight budget and want healthy food options</p>
+                    </div>
+                    <div class="user-card">
+                        <div class="user-icon">💼</div>
+                        <h3 style="color: #1a1a1a;">Young Workers</h3>
+                        <p>Don't have a lot of time on their hands</p>
+                    </div>
+                    <div class="user-card">
+                        <div class="user-icon">👨‍👩‍👧‍👦</div>
+                        <h3 style="color: #1a1a1a;">Low-Income Families</h3>
+                        <p>Want to eat healthier while saving money</p>
+                    </div>
+                    <div class="user-card">
+                        <div class="user-icon">🌱</div>
+                        <h3 style="color: #1a1a1a;">Eco-Conscious People</h3>
+                        <p>Want to reduce food waste and help the environment</p>
+                    </div>
+                </div>
+                <div style="margin-top: 3rem;">
+                    <h3>What else can we offer our users?</h3>
+                    <p>• Subscription Model for Surprise Meals<br>
+                    • "Rescue Rewards" Loyalty Program<br>
+                    • Corporate Partnerships for Office Lunches<br>
+                    • Gamification of Sustainability</p>
+                </div>
+            </section>
+
+            <!-- Demo Slide -->
+            <div class="section-separator"><div class="animated-line"></div></div>
+            <section class="slide slide-demo" style="background:transparent; box-shadow:none;">
+                <h2>App Demo</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; text-align: center;">Experience EcoHive in action</p>
+                <div class="demo-grid">
+                    <div class="demo-screen">
+                        <div class="demo-image">
+                            <img src="./mainpage.jpeg">
+                        </div>
+                        <div class="demo-title">Home Screen</div>
+                        <p>Browse available discounted items near you</p>
+                    </div>
+                    <div class="demo-screen">
+                        <div class="demo-image">
+                            <img src="./restaurantpage.jpeg">
+                        </div>
+                        <div class="demo-title">Restaurant Listings</div>
+                        <p>Discover local restaurants with surplus food</p>
+                    </div>
+                    <div class="demo-screen">
+                        <div class="demo-image">
+                            <img src="./orderpage.jpeg">
+                        </div>
+                        <div class="demo-title">Order Process</div>
+                        <p>Simple and quick ordering experience</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Business Model Slide -->
+            <div class="section-separator"><div class="animated-line"></div></div>
+            <section class="slide slide-business" style="background:transparent; box-shadow:none;">
+
+                <h2>The Business Model</h2>
+                <div class="business-model">
+                    <h3 style="color: #8cb86c; font-size: 2.5rem;">Commission Based</h3>
+                    <p style="font-size: 1.3rem; margin-top: 2rem;">The platform earns a little bit from every transaction between restaurants, clients and riders.</p>
+                    <p style="font-size: 1.5rem; margin-top: 2rem; color: #a87abd; font-weight: bold;">So it's a win-win!</p>
+                </div>
+            </section>
+
         </div>
     </section>
 

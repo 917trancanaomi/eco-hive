@@ -154,7 +154,7 @@
         }
 
         .stat-card {
-            background: rgba(26,26,26,0.1);
+            /* background: rgba(26,26,26,0.1); */
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
@@ -162,6 +162,26 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
+        }
+
+        .pink { 
+            background-color: #e1a3ca;
+        }
+
+        .purple {
+            background-color: #a87abd;
+        }
+
+        .green {
+            background-color: #8cb86c;
+        }
+
+        .yellow {
+            background-color: #dcc132;
+        }
+
+        .cream {
+            background-color: #f8f0de;
         }
 
         .stat-card::before {
@@ -271,7 +291,6 @@
         }
 
         .problem-card, .solution-card {
-            background: rgba(255,255,255,0.95);
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
@@ -284,7 +303,7 @@
         .problem-card:hover, .solution-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-            border-color: #8cb86c;
+            border-color: #e1a3ca;
         }
 
         .arrow {
@@ -361,7 +380,7 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             width: 100%;
-            max-width: 800px;
+            max-width: 1200px;
         }
 
         .user-card {
@@ -498,7 +517,7 @@
         .doodle {
             position: absolute;
             opacity: 0.6;
-            font-size: 2rem;
+            font-size: 4rem; /* Increased from 2rem to 4rem */
             color: #1a1a1a;
             animation: float 6s ease-in-out infinite;
             pointer-events: none;
@@ -526,6 +545,72 @@
             bottom: 25%;
             right: 5%;
             animation-delay: 1s;
+        }
+
+        .doodle-5 {
+            top: 5%;
+            left: 40%;
+            animation-delay: 1.5s;
+        }
+
+        .doodle-6 {
+            top: 30%;
+            right: 20%;
+            animation-delay: 3s;
+        }
+
+        .doodle-7 {
+            bottom: 10%;
+            left: 25%;
+            animation-delay: 4.5s;
+        }
+
+        .doodle-8 {
+            bottom: 20%;
+            right: 15%;
+            animation-delay: 2.5s;
+        }
+
+        .doodle-9 {
+            top: 15%;
+            left: 60%;
+            animation-delay: 3.5s;
+        }
+
+        .doodle-10 {
+            top: 35%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+
+        .doodle-11 {
+            bottom: 5%;
+            left: 50%;
+            animation-delay: 6s;
+        }
+
+        .doodle-12 {
+            top: 25%;
+            right: 30%;
+            animation-delay: 7s;
+        }
+
+        .doodle-13 {
+            bottom: 15%;
+            left: 10%;
+            animation-delay: 8s;
+        }
+
+        .doodle-14 {
+            top: 10%;
+            right: 5%;
+            animation-delay: 9s;
+        }
+
+        .doodle-15 {
+            bottom: 20%;
+            left: 40%;
+            animation-delay: 10s;
         }
 
         @keyframes float {
@@ -625,6 +710,10 @@
         <div class="doodle doodle-2">♻️</div>
         <div class="doodle doodle-3">🍃</div>
         <div class="doodle doodle-4">🌍</div>
+        <div class="doodle doodle-5">🌍</div>
+        <div class="doodle doodle-7">♻️</div>
+        <div class="doodle doodle-8">🍃</div>
+        <div class="doodle doodle-9">🌱</div>
         
         <div class="logo">EcoHive</div>
         <div class="tagline">Meet us</div>
@@ -639,17 +728,22 @@
 
     <!-- Stats Slide -->
     <section class="slide slide-stats">
+        <!-- Floating doodles -->
+        <div class="doodle doodle-1">🌱</div>
+        <div class="doodle doodle-2">♻️</div>
+        <div class="doodle doodle-3">🍃</div>
+        <div class="doodle doodle-4">🌍</div>
         <h2>Food Waste in Romania</h2>
         <div class="stats-container">
-            <div class="stat-card">
+            <div class="stat-card pink">
                 <span class="stat-number">1.3M</span>
                 <p>tons of food annually wasted in Romania</p>
             </div>
-            <div class="stat-card">
+            <div class="stat-card green">
                 <span class="stat-number">120B</span>
                 <p>units of cosmetic packaging are thrown out globally every year</p>
             </div>
-            <div class="stat-card">
+            <div class="stat-card yellow">
                 <span class="stat-number">8-10%</span>
                 <p>global greenhouse gas emissions is emitted by food waste</p>
             </div>
@@ -658,6 +752,11 @@
 
     <!-- How It Works Slide -->
     <section class="slide slide-how-it-works">
+        <!-- Floating doodles -->
+        <div class="doodle doodle-1">🌱</div>
+        <div class="doodle doodle-2">♻️</div>
+        <div class="doodle doodle-3">🍃</div>
+        <div class="doodle doodle-4">🌍</div>
         <h2>How EcoHive Works</h2>
         <div class="steps-container">
             <div class="step-card">
@@ -680,15 +779,20 @@
 
     <!-- Problem & Solution Slide -->
     <section class="slide slide-problem">
+        <!-- Floating doodles -->
+        <div class="doodle doodle-1">🌱</div>
+        <div class="doodle doodle-2">♻️</div>
+        <div class="doodle doodle-3">🍃</div>
+        <div class="doodle doodle-4">🌍</div>
         <h2>Problem & Need</h2>
         <div class="problem-solution">
-            <div class="problem-card">
-                <h3 style="color: #e74c3c;">Problem</h3>
+            <div class="problem-card" style="background-color: #e74c3c; color: white;">
+                <h3 style="color: white;">Problem</h3>
                 <p>Food left over after restaurants close is wasted</p>
             </div>
             <div class="arrow">→</div>
-            <div class="solution-card">
-                <h3 style="color: #27ae60;">Solution</h3>
+            <div class="solution-card" style="background-color: #27ae60; color: white;">
+                <h3 style="color: white;">Solution</h3>
                 <p><strong>Need:</strong> People need cheap options for good food</p>
                 <p>An app that allows customers to order cheaper food from restaurants before it goes bad.</p>
             </div>
@@ -697,6 +801,11 @@
 
     <!-- Markets Slide -->
     <section class="slide slide-markets">
+        <!-- Floating doodles -->
+        <div class="doodle doodle-1">🌱</div>
+        <div class="doodle doodle-2">♻️</div>
+        <div class="doodle doodle-3">🍃</div>
+        <div class="doodle doodle-4">🌍</div>
         <h2>Addressed Markets</h2>
         <div class="markets-grid">
             <div class="market-section">
@@ -722,6 +831,11 @@
 
     <!-- Competitors Slide -->
     <section class="slide slide-competitors">
+        <!-- Floating doodles -->
+        <div class="doodle doodle-1">🌱</div>
+        <div class="doodle doodle-2">♻️</div>
+        <div class="doodle doodle-3">🍃</div>
+        <div class="doodle doodle-4">🌍</div>
         <h2>Competitors & Industry Landscape</h2>
         <div class="competitors-grid">
             <div class="competitor-card">
@@ -741,27 +855,32 @@
 
     <!-- Target Users Slide -->
     <section class="slide slide-target">
+        <!-- Floating doodles -->
+        <div class="doodle doodle-1">🌱</div>
+        <div class="doodle doodle-2">♻️</div>
+        <div class="doodle doodle-3">🍃</div>
+        <div class="doodle doodle-4">🌍</div>
         <h2>Target Users</h2>
         <p style="font-size: 1.2rem; margin-bottom: 2rem; text-align: center;">Our app is for people who:</p>
-        <div class="target-users">
+        <div class="target-users" style="color: #1a1a1a;">
             <div class="user-card">
                 <div class="user-icon">🎓</div>
-                <h3>Students</h3>
+                <h3 style="color: #1a1a1a;">Students</h3>
                 <p>Have a tight budget and want healthy food options</p>
             </div>
             <div class="user-card">
                 <div class="user-icon">💼</div>
-                <h3>Young Workers</h3>
+                <h3 style="color: #1a1a1a;">Young Workers</h3>
                 <p>Don't have a lot of time on their hands</p>
             </div>
             <div class="user-card">
                 <div class="user-icon">👨‍👩‍👧‍👦</div>
-                <h3>Low-Income Families</h3>
+                <h3 style="color: #1a1a1a;">Low-Income Families</h3>
                 <p>Want to eat healthier while saving money</p>
             </div>
             <div class="user-card">
                 <div class="user-icon">🌱</div>
-                <h3>Eco-Conscious People</h3>
+                <h3 style="color: #1a1a1a;">Eco-Conscious People</h3>
                 <p>Want to reduce food waste and help the environment</p>
             </div>
         </div>
@@ -776,6 +895,11 @@
 
     <!-- Demo Slide -->
     <section class="slide slide-demo">
+        <!-- Floating doodles -->
+        <div class="doodle doodle-1">🌱</div>
+        <div class="doodle doodle-2">♻️</div>
+        <div class="doodle doodle-3">🍃</div>
+        <div class="doodle doodle-4">🌍</div>
         <h2>App Demo</h2>
         <p style="font-size: 1.2rem; margin-bottom: 2rem; text-align: center;">Experience EcoHive in action</p>
         <div class="demo-grid">
@@ -800,18 +924,16 @@
                 <div class="demo-title">Order Process</div>
                 <p>Simple and quick ordering experience</p>
             </div>
-            <div class="demo-screen">
-                <div class="demo-image">
-                    [Impact Tracking Placeholder]
-                </div>
-                <div class="demo-title">Impact Tracking</div>
-                <p>See your environmental impact and savings</p>
-            </div>
         </div>
     </section>
 
     <!-- Business Model Slide -->
     <section class="slide slide-business">
+        <!-- Floating doodles -->
+        <div class="doodle doodle-1">🌱</div>
+        <div class="doodle doodle-2">♻️</div>
+        <div class="doodle doodle-3">🍃</div>
+        <div class="doodle doodle-4">🌍</div>
         <h2>The Business Model</h2>
         <div class="business-model">
             <h3 style="color: #8cb86c; font-size: 2.5rem;">Commission Based</h3>

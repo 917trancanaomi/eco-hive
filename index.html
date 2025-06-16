@@ -403,10 +403,10 @@
 
         .demo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1120px;
         }
 
         .demo-screen {
@@ -419,7 +419,7 @@
 
         .demo-image {
             width: 100%;
-            height: 400px;
+            height: 700px;
             background: #f0f0f0;
             border-radius: 10px;
             display: flex;
@@ -429,13 +429,14 @@
             color: #666;
             font-size: 1.1rem;
             border: 2px dashed #8cb86c;
+            overflow: hidden;
         }
-
-        .demo-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #8cb86c;
-            margin-bottom: 0.5rem;
+        .demo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            display: block;
         }
 
         .business-model {
@@ -719,7 +720,7 @@
         <div class="tagline">Meet us</div>
         <h1 class="wavy-underline">Saving Today for a Greener Tomorrow</h1>
         <h3 class="typewriter">The New Future of Food Ordering</h3>
-        <p style="font-size: 1.3rem; max-width: 800px; margin-top: 2rem;">Transform Waste into Worth: Reducing Food & Cosmetic Waste, One Eco-Friendly Delivery at a Time</p>
+        <p style="font-size: 1.3rem; max-width: 800px; margin-top: 2rem;">Transform Waste into Worth: Reducing Food Waste, One Eco-Friendly Delivery at a Time</p>
         <div class="scroll-indicator">
             <div style="font-size: 2rem; animation: bounce 2s infinite;">↓</div>
             <div>Scroll to explore</div>
@@ -741,7 +742,7 @@
             </div>
             <div class="stat-card green">
                 <span class="stat-number">120B</span>
-                <p>units of cosmetic packaging are thrown out globally every year</p>
+                <p>units of packaging are thrown out globally every year</p>
             </div>
             <div class="stat-card yellow">
                 <span class="stat-number">8-10%</span>
@@ -761,8 +762,8 @@
         <div class="steps-container">
             <div class="step-card">
                 <div class="step-number">1</div>
-                <h3>Save Near-Expiration Products</h3>
-                <p>Food and cosmetics near expiration are listed at discounted rates.</p>
+                <h3>Save Products near closing-time</h3>
+                <p>Food not sold near closing-time that is supposed to be thrown out is listed at discounted rates.</p>
             </div>
             <div class="step-card">
                 <div class="step-number">2</div>
@@ -905,21 +906,21 @@
         <div class="demo-grid">
             <div class="demo-screen">
                 <div class="demo-image">
-                    [Home Screen Image Placeholder]
+                    <img src="./mainpage.jpeg">
                 </div>
                 <div class="demo-title">Home Screen</div>
                 <p>Browse available discounted items near you</p>
             </div>
             <div class="demo-screen">
                 <div class="demo-image">
-                    [Restaurant Listing Placeholder]
+                    <img src="./restaurantpage.jpeg">
                 </div>
                 <div class="demo-title">Restaurant Listings</div>
                 <p>Discover local restaurants with surplus food</p>
             </div>
             <div class="demo-screen">
                 <div class="demo-image">
-                    [Order Process Placeholder]
+                    <img src="./orderpage.jpeg">
                 </div>
                 <div class="demo-title">Order Process</div>
                 <p>Simple and quick ordering experience</p>
